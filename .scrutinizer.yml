@@ -1,0 +1,14 @@
+
+build:
+    environment:
+        node: '5.1.0'
+    dependencies:
+        after:
+            - npm install eslint
+    tests:
+        override: 
+            -
+                command: './node_modules/.bin/eslint ./ --format checkstyle --output-file eslint-data'
+                analysis:
+                    file: 'eslint-data'
+                    format: 'eslint-checkstyle'
